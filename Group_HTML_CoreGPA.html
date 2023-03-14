@@ -1,0 +1,183 @@
+<!-- Luke Woods, Addison Smith, Neil Borchardt, Peter John Phethean, Will Koelliker, Yenah Park -->
+<!-- Group Core GPA project -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core GPA Calc</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            fIS201 = parseFloat(document.getElementById("is201Grade").value);
+            fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+            fIS303= parseFloat(document.getElementById("is303Grade").value);
+            fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+            fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+            fEssay = parseInt(document.getElementById("essay").value);
+
+            //calculates new gpa
+            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = fFinalGPA;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label> 
+            <H1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;"> Core GPA Calculator</H1>
+    <div style="text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        </label>
+        <fieldset style= "margin: 10px; 
+                        padding: 10px;
+                        border-width: 3px;
+                        border-color: black; 
+                        border-style: solid; 
+                        text-align: center;
+                        display: inline-block;
+                        width: fit-content;
+                        padding: 50px;
+                        background-color: #b6c2d6;">
+        <!-- This is the label and input for IS 201 grade-->
+        <label>What was your IS 201 grade? 
+            <br> <br> <select id="is201Grade" required>
+                <option value="0"></option>
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.4">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+                <option value="2.4">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.4">D+</option>
+                <option value="1.0">D</option>
+                <option value="0.7">D-</option>
+                <option value="0.0">F</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <br>
+        <!-- This is the label and input for ACC 200 grade-->
+        <label>What was your ACC 200 grade?
+            <br> <br>
+            <select id="acc200Grade" required>
+                <option value="0"></option>
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.4">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+                <option value="2.4">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.4">D+</option>
+                <option value="1.0">D</option>
+                <option value="0.7">D-</option>
+                <option value="0.0">F</option>
+            </select>
+         </label>
+        <br>
+        <br>
+        <br>
+        <!-- This is the label and input for IS 303 grade-->
+        <label>What was your IS 303 grade? 
+            <br> <br>
+            <select id="is303Grade" required>
+                <option value="0"></option>
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.4">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+                <option value="2.4">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.4">D+</option>
+                <option value="1.0">D</option>
+                <option value="0.7">D-</option>
+                <option value="0.0">F</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <br>
+        <!-- This is the label and input for overall GPA-->
+        <label>What is your overall GPA? 
+            <br>  <br><input type="number" id="overallGPA" title="Enter in 3 digit format EX: 3.25" required>
+        </label> 
+        <br>
+        <br>
+        <br>
+        <!-- This is the label and input for last 30 credit GPA-->
+        <label>What is your GPA for the last 30 credits? 
+            <br> <br> <input type="number" id="last30GPA" title="Enter in 3 digit format EX: 3.25" required>
+        </label>
+        <br>
+        <br>
+        <br>
+        <!-- This is the label and input for the essay grade-->
+        <label>What was your essay score? 
+            <br> <br>
+            <select id="essay" required>
+                <option value="0"></option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+            </select>
+        </label>
+        </fieldset>
+    <div>
+        <br>
+        <!-- This is the button to run the calculate logic-->
+        <button style=" display: inline-block;
+        background-color: black;
+        padding: 20px;
+        height: 100px;
+        width: 166px;
+        color: #ffffff;
+        text-align: center;
+        border: 4px double #cccccc; /* add this line */
+        border-radius: 10px; /* add this line */
+        font-size: 24px; /* add this line */
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer; /* add this line */
+        margin: 5px; /* add this line */"
+        type="button" onclick="calcGPA()">Calculate GPA</button>
+        <br>
+        <br>
+        <!--insert html tag for displaying the calcualted GPA --> 
+    <div>
+        <label style="font-family: Arial, Helvetica, sans-serif;"">
+        <fieldset style= "margin: 10px; 
+            padding: 10px;
+            border-width: 3px;
+            border-color: black; 
+            border-style: solid; 
+            text-align: center;
+            display: inline-block;
+            width: fit-content;
+            padding: 50px;
+            background-color: #b6c2d6;">
+                Your core GPA is...
+                <br>
+                <br>
+            <label id="coreGPA" style="text-align: center; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: larger;"></label>
+            <br>
+            <br>
+        </fieldset>
+        </label>
+    </div>
+    </form>
+</body>
+</html>
